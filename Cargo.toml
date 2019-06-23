@@ -1,0 +1,30 @@
+[package]
+name = "char-seq"
+version = "0.1.0"
+description = "Map char code points to a compact linear sequence while exclusively handling a single family of Scripts (e.g., Latin, Cyrillic) for one natural language at a time"
+keywords = ["char", "sequence", "hasher", "unicode", "utf-8", "iso-8859"]
+repository = "https://github.com/dpezely/char-seq"
+authors = ["Daniel Pezely <first name at last name dot com>"]
+edition = "2018"
+
+[features]
+
+default = ["UTF-8"]
+
+# Accommodates most of the world's languages, albeit each exclusively.
+# This requires that you use only one language at a time.  This carves
+# a compact *overlapping* pseudo-alphabet of index values suitable for
+# an contiguous array or vector.
+# corresponding to each natural language while excluding all others.
+# For example, mixing Greek and Latin would render nonsense results.
+UTF-8 = []
+
+# For all ISO-8859-* covering ASCII a-z plus 0xA1 through 0xFF (lowercase)
+# will execute faster due to fewer IF/ELSE-IF conditionals than default UTF-8
+ISO-8859 = []
+
+# For fastest operation for those ignoring most of the world's languages
+# but believing there is a need for raw speed within that narrow case...
+ASCII-ONLY = []
+
+[dependencies]
