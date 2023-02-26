@@ -5,7 +5,7 @@ description = "Map char code points to a compact linear sequence while exclusive
 keywords = ["char", "sequence", "hasher", "unicode", "utf-8", "iso-8859"]
 repository = "https://github.com/dpezely/char-seq"
 authors = ["Daniel Pezely <first name at last name dot com>"]
-edition = "2018"
+edition = "2021"
 
 [features]
 
